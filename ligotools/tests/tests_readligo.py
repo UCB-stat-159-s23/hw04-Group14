@@ -5,6 +5,8 @@ import matplotlib.pyplot as plt
 from scipy.interpolate import interp1d
 from ligotools import readligo as rl
 from ligotools.utils import *
+import pytest
+
 
 file_L1 = "data/L-L1_LOSC_4_V2-1126259446-32.hdf5"
 file_H1 = "data/H-H1_LOSC_4_V2-1126259446-32.hdf5"
@@ -34,6 +36,4 @@ def test_dq_channel_to_seglist():
     seg_H1 = readligo.dq_channel_to_seglist(chan_dict_H1)
     assert type(seg_L1)==list
     assert type(seg_H1)==list
-    
-
     
