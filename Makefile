@@ -1,6 +1,6 @@
 ## Makefile to create environment, build JupyterBook, and clean for this repository 
 
-. ONESHELL:
+.ONESHELL:
 SHELL = /bin/bash
 
 ## create_environment : creates an environment
