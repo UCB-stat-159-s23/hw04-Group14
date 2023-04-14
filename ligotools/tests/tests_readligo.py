@@ -1,7 +1,10 @@
 import numpy as np
-from ligotools import readligo as rl
-import pytest
 import json
+import matplotlib.mlab as mlab
+import matplotlib.pyplot as plt
+from scipy.interpolate import interp1d
+from ligotools import readligo as rl
+from ligotools.utils import *
 
 file_L1 = "data/L-L1_LOSC_4_V2-1126259446-32.hdf5"
 file_H1 = "data/H-H1_LOSC_4_V2-1126259446-32.hdf5"
@@ -33,3 +36,4 @@ def test_dq_channel_to_seglist():
     assert type(seg_H1)==list
     
 
+    
