@@ -8,6 +8,12 @@ import json
 import matplotlib.pyplot as plt
 import matplotlib.mlab as mlab
 
+fnjson = "data/BBH_events_v3.json"
+events = json.load(open(fnjson,"r"))
+eventname = 'GW150914'
+event = events[eventname]
+fs = event['fs']
+
 def whiten(strain, interp_psd, dt):
     Nt = len(strain)
     freqs = np.fft.rfftfreq(Nt, dt)
@@ -26,8 +32,6 @@ def write_wavfile(filename,fs,data):
     wavfile.write(filename,int(fs), d)
     
 def reqshift(data,fshift=100,sample_rate=4096):
-    """Frequency shift the signal by constant
-    """
     x = np.fft.rfft(data)
     T = len(data)/float(sample_rate)
     df = 1.0/T
@@ -40,21 +44,6 @@ def reqshift(data,fshift=100,sample_rate=4096):
 
 
 #Plot function
-
-# -- To calculate the PSD of the data, choose an overlap and a window (common to all detectors)
-#   that minimizes "spectral leakage" https://en.wikipedia.org/wiki/Spectral_leakage
-NFFT = 4*fs
-psd_window = np.blackman(NFFT)
-# and a 50% overlap:
-NOVL = NFFT/2
-
-# define the complex template, common to both detectors:
-template = (template_p + template_c*1.j) 
-# We will record the time where the data match the END of the template.
-etime = time+template_offset
-# the length and sampling rate of the template MUST match that of the data.
-datafreq = np.fft.fftfreq(template.size)*fs
-df = np.abs(datafreq[1] - datafreq[0])
 
 def plot_psd(det, strain_H1_whitenbp, strain_L1_whitenbp, template_match, time, timemax, SNR, eventname, plottype, tevent, template_fft, datafreq, d_eff, freqs,data_psd, fs):
     if det == 'L1': 
