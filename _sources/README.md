@@ -1,5 +1,5 @@
 # hw04-Group14
-hw04-hw04-group14 created by GitHub Classroom
+hw04-group14 created by GitHub Classroom
 
 This homework expands on HW02 which focuses on improving our reproducibility skill. This includes organizing our repo, installing/testing packages, and creating JupyterBook and Makefile. Following link is the final result of our work. 
 
