@@ -5,5 +5,3 @@ This homework expands on HW02 which focuses on improving our reproducibility ski
 
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/UCB-stat-159-s23/hw04-Group14/HEAD?labpath=LOSC_Event_tutorial.ipynb)
-
-https://ucb-stat-159-s23.github.io/hw04-Group14/intro.html
