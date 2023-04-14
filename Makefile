@@ -8,9 +8,9 @@ SHELL = /bin/bash
 envs : 
 	source /srv/conda/etc/profile.d/conda.sh
 	conda env create -f environment.yml
-	conda activate make-ligo
+	conda activate makeLigo
 	conda install ipykernel
-	python -m ipykernel install --user --name make-ligo --display-name "IPython - Make"
+	python -m ipykernel install --user --name makeLigo --display-name "IPython - Make"
 
 
 ## html : builds jupyterbook
