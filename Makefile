@@ -1,27 +1,21 @@
-## Makefile to build JupyterBook for this repository 
+## Makefile to create environment, build JupyterBook, and clean for this repository 
 
 . ONESHELL:
 SHELL = /bin/bash
 
-## create_environment : create environment
-.PHONY : create_environment
-create_environment : 
+## create_environment : creates an environment
+.PHONY : envs
+envs : 
 	source /srv/conda/etc/profile.d/conda.sh
 	conda env create -f environment.yml
-	conda activate notebook
-
-## update_environment : install ipykernel and create kernel
-.PHONY : update_environment 
-update_environment :
+	conda activate make-ligo
 	conda install ipykernel
-	python -m ipykernel install --user --name make-env --display-name "IPython - Make"
+	python -m ipykernel install --user --name make-ligo --display-name "IPython - Make"
 
 
 ## html : builds jupyterbook
 .PHONY : html
 html:
-	mkdir audio
-	mkdir figures
 	jb build .
 
 ## clean : removes audio, figure, and _build directories
@@ -29,4 +23,4 @@ html:
 clean : 
 	rm -f audio/*
 	rm -f figures/*
-	rm -f _build/*
+	rm -r _build/*
